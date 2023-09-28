@@ -1,0 +1,478 @@
+/*
+Theme Name: Fleurs d'orangers et chats errants - Oscars Short
+Theme URI: https://www.koukaki.local
+Template: foce
+Author: Studio Koukaki
+Author URI: https://www.koukaki.local
+Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+Version: 0.1.1685023260
+Updated: 2023-05-25 14:01:00
+*/
+
+
+
+/* burger menu - ligne 65 
+/* effet fade-in sur ouverture - ligne 66 
+/* Transformation en croix quand burger menu ouvert - ligne 131 
+/* effet de flottement sur logo - ligne 153 
+/* Version responsive - ligne 194 
+/* Vidéo en background dans le header - ligne 207 
+/* parallax video et logo - ligne 227 
+/* Fleurs animées dans le burger menu - ligne  240 
+/* Carrousel cover effect - ligne 347 
+/* Section des nuages animés au scroll - ligne  359 
+/* section nominé aux Oscars - ligne 414 
+/* Section footer - ligne 429 
+/* effet de fade-in des sections - ligne 439
+/* apparition des titres - ligne 464 */
+
+@media screen {
+  .main-navigation ul {
+    display: none;
+  }
+  
+  .burger-menu {
+    display: block;
+  }
+}
+
+.main-navigation button {
+
+  margin-right: 50px;
+  margin-top: -62px;
+}
+
+.main-navigation .line {
+  height: 2px;
+  background-color: #000;
+  display: block;
+  margin: auto;
+  margin-block: 9px;
+  width: 35px;
+}
+
+.main-navigation a {
+  display: block;
+  text-decoration: none;
+  padding-top: 22px;
+  text-align: center;
+}
+
+.menu-open .site-navigation {
+  display: block !important;
+}
+
+/* burger menu */
+/* effet fade-in sur ouverture */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.burger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+body.menu-open .burger-menu {
+  transform: translateX(0);
+  background-color: #fff5e9;
+  z-index: -1;
+  animation: fadeIn 3s ease-in-out;
+  margin-top: 80px;
+}
+
+.burger-menu.center-links {
+  text-align: center;
+  font-weight: 400;
+}
+
+.burger-menu.center-links li {
+  margin-bottom: 20px;
+  font-size: 64px;
+}
+
+.burger-menu.center-links li:last-child {
+  margin-bottom: 20px;
+}
+
+.position_menu {
+  margin-top: -1040px;
+}
+
+.hover-effect:hover {
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 14px #FF5C00;
+}
+
+.burger-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-logo2 {
+  height: 95px;
+  margin-top: 100px;
+}
+
+/* Transformation en croix quand burger menu ouvert */
+
+.menu-toggle.active .line:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+  position: absolute;
+  top: 14px;
+}
+.menu-toggle.active .line:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .line:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  padding: 25px;
+  cursor: pointer;
+}
+
+/* effet de flottement sur logo */
+
+.floating-logo {
+  position: absolute;
+  top: -100%; 
+  left: 25%;
+  transform: translateX(-50%);
+  z-index: 1;
+  animation: floating 3s ease-in-out infinite, slide-in 3s ease-out forwards;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    top: 100%; 
+  }
+  100% {
+    top: 34%; 
+  }
+}
+
+.banner {
+ 
+  min-height: 806px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Version responsive */ 
+
+@media (max-width: 768px) {
+  .banner {
+    background-image: url("images/banner.png");
+    min-height: 500px;
+}
+  #video-bg {
+
+ display: none;
+  }
+}
+
+/* Vidéo en background dans le header */
+
+#container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+#video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(-1px);
+
+}
+
+/* parallax video et logo*/
+
+#parallax-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+
+  transform-style: preserve-3d;
+}
+
+/* Fleurs animées dans le burger menu */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#orchid {
+  background-image: url(images/orchid.png);
+  background-repeat: no-repeat;
+  width: 170px;
+  animation: spin 10s infinite linear;
+  margin-top: -180px;
+  height: 170px;
+}
+
+
+#sunflower {
+  background-image: url(images/Sunflower.png);
+  background-repeat: no-repeat;
+  width: 0%;
+  animation: spin 10s infinite linear;
+}
+
+#flower {
+  background-image: url(images/flower.png);
+  background-repeat: no-repeat;
+  width: 0%;
+  animation: spin 10s infinite linear;
+}
+
+#random_flower {
+  background-image: url(images/random_flower.png);
+  background-repeat: no-repeat;
+  width: 200px;
+  animation: spin 10s infinite linear;
+  height: 200px;
+}
+#hibiscus_footer {
+  background-image: url(images/Hibiscus_footer.png);
+  background-repeat: no-repeat;
+  width: 10%;
+
+  width: 650px;
+  height: 650px;
+  animation: spin 10s infinite linear;
+  padding-left: -500px;
+  padding-right: -500px;
+  margin-left: 1550px;
+  margin-top: -330px;
+}
+
+
+.orchid_position, .sunflower_position, .cat_position, .flower_position, .random_flower_position, .cat2_position, .cat3_position, .hibiscus_footer_position {
+  padding-left: 150px;
+  padding: 80px;
+}
+
+.orchid_position {
+  margin-top: -200px;
+  margin-left: -80px;
+}
+
+.sunflower_position {
+  margin-top: -100px;
+  margin-left: 1300px;
+}
+
+.random_flower_position {
+  margin-top: -300px;
+  margin-left: 1620px;
+  width: 10%;
+}
+
+.hibiscus_footer_position {
+  margin-top: -250px;
+  margin-left: 1200px;
+  padding-left: -150px;
+}
+
+.flower_position {
+  margin-top: 200px;
+  margin-left: 90px;
+}
+
+
+.story h2::after {
+  content: url(images/Sunflower.png);
+  left: -6.6em;
+  top: 6em;
+  width: 155px;
+  height: 155px;
+}
+
+.story__article::before {
+  content: url(images/hibiscus_leaves.png);
+  position: absolute;
+  left: 50%;
+  top: 8em;
+  z-index: -1;
+
+}
+
+/* Carrousel cover effect */
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  top: var(--swiper-pagination-top,auto);
+  left: 0;
+  width: 100%;
+  margin-bottom: -50px;
+}
+
+/* Section des nuages animés au scroll */
+
+.big_cloud,
+.little_cloud {
+  display: flex;
+  background-repeat: no-repeat;
+  width: 100%;
+  filter: blur(5px);
+}
+
+.story #place {
+  background-image: url("images/place_bg.png");
+  min-height: 699px;
+  background-size: cover;
+}
+
+.big_cloud {
+  background-image: url("images/big_cloud.png");
+  margin-right: -900px;
+  margin-top: 85px;
+}
+
+.little_cloud {
+  background-image: url("images/little_cloud.png");
+  margin: 280px;
+  margin-right: -400px;
+}
+
+h2 {
+  color: #FFF5E9;
+  font-size: 4.429rem;
+  background-image: url("images/purple_title_bg.png");
+  background-color: #FFF5E9;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 1em 2em;
+  margin: 0;
+  background-position: center;
+  text-align: center;
+}
+
+.story #place>div {
+  max-width: 2580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 6em;
+}
+
+.section-title.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* section nominé aux Oscars */
+
+.oscars {
+  background: url("images/oscars.png");
+  background-repeat: no-repeat;
+  margin-left: 120px;
+  margin-top: 160px;
+}
+
+#nomine {
+  position: absolute;
+  width: 1200px;
+  height: 300px;
+}
+
+/* Section footer */
+
+.site-footer {
+  position: relative;
+  display: flex;
+  padding-top: 58em;
+  padding-bottom: 1em;
+  overflow: hidden;
+}
+
+/* effet de fade-in des sections */
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s, transform 2s;
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 1s, transform 2s;
+}
+
+.fade-in-active.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-active.fade-in-down {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* apparition des titres */
+
+.fade-in-title {
+  opacity: 0;
+  transform: translateY(120px);
+  transition: opacity 2.5s, transform 2.5s;
+}
+.fade-in-title.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
